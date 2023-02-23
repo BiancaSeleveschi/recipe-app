@@ -48,8 +48,4 @@ export default {
 #description:hover {
   color: #076bde;
 }
-
-.item:hover {
-  transform: scale(1.1);
-}
 </style>

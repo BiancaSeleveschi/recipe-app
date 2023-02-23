@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :style="{ 'background-image': `url(${image})` }">
     <nav>
       <router-link class="m-2" to="/">Home</router-link>
       <router-link class="m-2" to="/recipe/create">Add recipe</router-link>
@@ -8,6 +8,16 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+      image: require("@/assets/image.png"),
+    };
+  },
+};
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -15,8 +25,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background: #dac1c1;
-  /*background: lightblue;*/
+  background-image: url("@/assets/image.png");
 }
 
 nav {
@@ -27,7 +36,15 @@ nav a {
   font-weight: bold;
   color: #2c3e50;
 }
-
+div html {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+html {
+  background-image: url("@/assets/image.png");
+}
 nav a.router-link-exact-active {
   color: #42b983;
 }

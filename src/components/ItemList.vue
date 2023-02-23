@@ -31,6 +31,5 @@ export default {
 
 .item {
   background: #9f7070;
-  /*background: lightblue;*/
 }
 </style>

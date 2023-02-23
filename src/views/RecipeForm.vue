@@ -20,7 +20,7 @@
       placeholder="Price"
     />
     <!--      <input-->
-    <!--        v-model="newRecipe.img"-->
+    <!--        v-model="newRecipe."-->
     <!--        class="d-block m-auto my-2"-->
     <!--        type="image"-->
     <!--        placeholder="Image"-->
