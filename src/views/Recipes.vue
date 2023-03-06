@@ -19,7 +19,7 @@
     >
       <CategoryButton
         :category="category"
-        @show-recipe="filterRecipes(index)"
+        @filter-recipes="filterRecipes(index)"
       />
     </div>
     <ItemList :recipes="filteredRecipes" />
@@ -51,6 +51,8 @@ export default {
             .toLowerCase()
             .includes(this.searchTitle.toLowerCase());
         });
+      } else {
+        this.filteredRecipes = this.recipes;
       }
     },
     filterRecipes(index) {

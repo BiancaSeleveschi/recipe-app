@@ -21,7 +21,7 @@ export default {
   props: ["category"],
   methods: {
     filterRecipes() {
-      this.$emit("show-recipe");
+      this.$emit("filter-recipes");
     },
   },
 };
