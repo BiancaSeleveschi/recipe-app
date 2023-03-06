@@ -35,11 +35,17 @@
       </option>
     </select>
     <button
+      v-show="!addedRecipe"
       class="d-block mt-3 m-auto rounded-2 btn btn-primary"
       @click="addRecipe"
     >
       Add
     </button>
+    <transition name="fade">
+      <div v-if="alert" class="alert alert-success w-50 mx-auto mt-5">
+        {{ alert }}
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -55,6 +61,8 @@ export default {
         desc: "",
       },
       categories: ["Breakfast", "Lunch", "Dinner"],
+      addedRecipe: "",
+      alert: null,
     };
   },
   methods: {
@@ -66,6 +74,10 @@ export default {
         price: "",
         desc: "",
       };
+      this.alert = "✔ The recipe has been added to your cart.";
+      setTimeout(() => {
+        this.alert = null;
+      }, 3000);
     },
   },
 };
