@@ -91,19 +91,11 @@ export default new Vuex.Store({
         desc: `Liven up a tomato soup with a few easy and tasty additions, including a spoonful of ricotta. It's classic comfort food and also a low-calorie, healthy option`,
       },
     ],
+    categories: ["All", "Breakfast", "Lunch", "Dinner"],
   },
   getters: {
     getRecipesByCategory: (state) => (category) => {
       return state.recipes.filter((r) => r.category === category);
-    },
-    getAllCategories: (state) => () => {
-      let categoriesList = ["All"];
-      for (let i = 0; i < state.recipes.length; i++) {
-        if (!categoriesList.includes(state.recipes[i].category)) {
-          categoriesList.push(state.recipes[i].category);
-        }
-      }
-      return categoriesList;
     },
   },
   mutations: {

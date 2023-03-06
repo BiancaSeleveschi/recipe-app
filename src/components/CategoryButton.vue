@@ -1,15 +1,13 @@
 <template>
   <div>
     <button
-      class="d-grid gap-2 d-md-block"
-      @click="showRecipes"
+      id="category-button"
+      @click="filterRecipes"
       :class="{
-        'btn btn-outline-dark d-grid gap-2 d-md-block': category === 'All',
-        'btn btn-outline-danger d-grid gap-2 d-md-block':
-          category === 'Breakfast',
-        'btn btn-outline-success d-grid gap-2 d-md-block': category === 'Lunch',
-        'btn btn-outline-warning d-grid gap-2 d-md-block':
-          category === 'Dinner',
+        'btn btn-outline-dark ': category === 'All',
+        'btn btn-outline-danger ': category === 'Breakfast',
+        'btn btn-outline-success ': category === 'Lunch',
+        'btn btn-outline-warning': category === 'Dinner',
       }"
     >
       {{ category }}
@@ -19,15 +17,18 @@
 
 <script>
 export default {
-  // eslint-disable-next-line vue/multi-word-component-names
-  name: "Buttons",
+  name: "CategoryButton",
   props: ["category"],
   methods: {
-    showRecipes(category) {
-      this.$emit("show-recipe", category);
+    filterRecipes() {
+      this.$emit("show-recipe");
     },
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+#category-button {
+  width: 100px;
+}
+</style>

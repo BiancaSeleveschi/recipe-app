@@ -1,21 +1,15 @@
-<template class="bg-primary">
+<template>
   <div>
     <h2 class="mb-4">Add recipe</h2>
     <input
       v-model="newRecipe.title"
-      class="d-block m-auto my-2"
+      class="d-block m-auto my-2 add-recipe-input"
       type="text"
       placeholder="Title"
     />
     <input
-      v-model="newRecipe.category"
-      class="d-block m-auto my-2"
-      type="text"
-      placeholder="Category"
-    />
-    <input
       v-model="newRecipe.price"
-      class="d-block m-auto my-2"
+      class="d-block m-auto my-2 add-recipe-input"
       type="number"
       placeholder="Price"
     />
@@ -27,12 +21,21 @@
     <!--      />-->
     <input
       v-model="newRecipe.desc"
-      class="d-block m-auto my-2"
+      class="d-block m-auto my-2 add-recipe-input"
       type="text"
       placeholder="Description"
     />
+    <select
+      class="d-block m-auto my-2 rounded-2 add-recipe-select"
+      v-model="newRecipe.category"
+      required
+    >
+      <option v-for="(category, index) in categories" :key="index">
+        {{ category }}
+      </option>
+    </select>
     <button
-      class="d-block mt-2 m-auto rounded-2 btn btn-primary"
+      class="d-block mt-3 m-auto rounded-2 btn btn-primary"
       @click="addRecipe"
     >
       Add
@@ -47,10 +50,11 @@ export default {
     return {
       newRecipe: {
         title: "",
-        category: "",
+        category: this.$store.state.categories[1],
         price: "",
         desc: "",
       },
+      categories: ["Breakfast", "Lunch", "Dinner"],
     };
   },
   methods: {
@@ -58,7 +62,7 @@ export default {
       this.$store.dispatch("addRecipe", this.newRecipe);
       this.newRecipe = {
         title: "",
-        category: "",
+        category: this.$store.state.categories[1],
         price: "",
         desc: "",
       };
@@ -67,4 +71,16 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.add-recipe-input {
+  width: 230px;
+}
+
+.add-recipe-input,
+.add-recipe-select {
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+}
+</style>

@@ -36,16 +36,15 @@ nav a {
   font-weight: bold;
   color: #2c3e50;
 }
+
 div html {
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 html {
   background-image: url("@/assets/image.png");
-}
-nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>
