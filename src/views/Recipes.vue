@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="fw-bold">Our Menu</h1>
+    <h1 class="fw-bold">My Menu</h1>
     <div class="border border-dark m-auto mt-3" id="border-menu"></div>
     <h4 class="mt-5 mb-4">Search recipe</h4>
     <div class="m-auto">

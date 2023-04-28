@@ -16,6 +16,17 @@ export default {
       image: require("@/assets/image.png"),
     };
   },
+  // watch: {
+  //   recipes: {
+  //     handler() {
+  //       this.$store.commit("UPDATE_STORE");
+  //     },
+  //     deep: true,
+  //   },
+  // },
+  created() {
+    this.$store.commit("INIT_STORE");
+  },
 };
 </script>
 <style>

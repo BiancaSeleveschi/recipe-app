@@ -1,24 +1,25 @@
 <template>
   <div>
     <h2 class="mb-4">Add recipe</h2>
-    <input
-      v-model="newRecipe.title"
-      class="d-block m-auto my-2 add-recipe-input"
-      type="text"
-      placeholder="Title"
+    <div class="my-2">
+      <input
+        v-model="newRecipe.title"
+        class="d-block m-auto add-recipe-input"
+        type="text"
+        placeholder="Title"
+        required
+      />
+      <p v-show="showTitleAlert" class="text-danger" id="alert-title">
+        Add a title
+      </p>
+    </div>
+    <UploadImages
+      @changed="handleImages"
+      :max="5"
+      maxError="Max files exceed"
+      uploadMsg="upload product images"
+      fileError="images files only accepted"
     />
-    <input
-      v-model="newRecipe.price"
-      class="d-block m-auto my-2 add-recipe-input"
-      type="number"
-      placeholder="Price"
-    />
-    <!--      <input-->
-    <!--        v-model="newRecipe."-->
-    <!--        class="d-block m-auto my-2"-->
-    <!--        type="image"-->
-    <!--        placeholder="Image"-->
-    <!--      />-->
     <input
       v-model="newRecipe.desc"
       class="d-block m-auto my-2 add-recipe-input"
@@ -42,19 +43,30 @@
       Add
     </button>
     <transition name="fade">
-      <div v-if="alert" class="alert alert-success w-50 mx-auto mt-5">
-        {{ alert }}
+      <div
+        v-show="showAddingAlert"
+        class="alert alert-success w-25 mx-auto mt-5"
+        role="alert"
+      >
+        ✔ The recipe has been added to your cart.
       </div>
     </transition>
   </div>
 </template>
 
 <script>
+import UploadImages from "vue-upload-drop-images";
+import { v4 as uuid } from "uuid";
+
 export default {
   name: "RecipeForm",
+  components: {
+    UploadImages,
+  },
   data() {
     return {
       newRecipe: {
+        id: uuid(),
         title: "",
         category: this.$store.state.categories[1],
         price: "",
@@ -62,28 +74,36 @@ export default {
       },
       categories: ["Breakfast", "Lunch", "Dinner"],
       addedRecipe: "",
-      alert: null,
+      showAddingAlert: false,
+      showTitleAlert: false,
     };
   },
   methods: {
     addRecipe() {
-      this.$store.dispatch("addRecipe", this.newRecipe);
-      this.newRecipe = {
-        title: "",
-        category: this.$store.state.categories[1],
-        price: "",
-        desc: "",
-      };
-      this.alert = "✔ The recipe has been added to your cart.";
-      setTimeout(() => {
-        this.alert = null;
-      }, 3000);
+      this.showTitleAlert = this.newRecipe.title === "";
+      this.showAddingAlert = !this.showTitleAlert;
+      if (this.showAddingAlert) {
+        this.$store.dispatch("addRecipe", this.newRecipe);
+        setTimeout(this.clear, 3000);
+      }
+    },
+    clear() {
+      this.showAddingAlert = false;
+    },
+    handleImages(files) {
+      console.log("files");
+      console.log(files);
     },
   },
 };
 </script>
 
 <style scoped>
+#alert-title {
+  margin-right: 155px;
+  font-size: 14px;
+}
+
 .add-recipe-input {
   width: 230px;
 }

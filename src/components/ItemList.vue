@@ -1,34 +1,32 @@
 <template>
-  <div>
-    <div class="container">
-      <div class="row d-flex justify-content-between">
-        <div
-          v-for="(recipe, index) in recipes"
-          :key="index"
-          class="col m-4 p-4 border border-2 border-dark rounded-2 item"
-        >
+  <div class="container pb-5">
+    <div class="row d-flex justify-content-between">
+      <div
+        v-for="(recipe, index) in recipes"
+        :key="index"
+        class="col m-4 p-4 border border-2 border-dark rounded-2 item"
+      >
+        <div id="recipe-header" class="pt-2">
           <h2>{{ recipe.title }}</h2>
           <p>{{ recipe.category }}</p>
           <p class="fw-bold">{{ recipe.price }}</p>
-          <img
-            :src="recipe.img"
-            width="300"
-            class="m-auto card border-warning"
-          />
-          <p
-            class="mt-3 fst-italic fw-bold"
-            id="description"
-            @click="showDescription"
-          >
-            {{ !showDesc ? "Click for description" : "Hide description" }}
-          </p>
-          <div v-show="showDesc">
-            <p class="fst-italic">{{ recipe.desc }}</p>
-          </div>
-          <button @click="deleteRecipe(recipe.title)" class="btn btn-danger">
-            Delete
-          </button>
         </div>
+        <img :src="recipe.img" width="300" class="m-auto card border-warning" />
+        <p
+          class="mt-3 fst-italic fw-bold"
+          id="description"
+          @click="changeRecipeIndexForDescription(index)"
+        >
+          {{
+            indexRecipe !== index ? "Click for description" : "Hide description"
+          }}
+        </p>
+        <div v-show="indexRecipe === index">
+          <p class="fst-italic">{{ recipe.desc }}</p>
+        </div>
+        <button @click="deleteRecipe(recipe)" class="btn btn-danger">
+          Delete
+        </button>
       </div>
     </div>
   </div>
@@ -40,21 +38,26 @@ export default {
   props: ["recipes"],
   data() {
     return {
-      showDesc: false,
+      indexRecipe: -1,
     };
   },
   methods: {
-    deleteRecipe(title) {
-      this.$store.dispatch("deleteRecipe", title);
+    deleteRecipe(recipe) {
+      this.$store.dispatch("deleteRecipe", recipe);
     },
-    showDescription() {
-      this.showDesc = !this.showDesc;
+    changeRecipeIndexForDescription(index) {
+      this.indexRecipe = this.indexRecipe !== index ? index : -1;
     },
   },
 };
 </script>
 
 <style scoped>
+#recipe-header {
+  height: 130px;
+  align-self: center;
+}
+
 .item:hover {
   transform: scale(1.1);
 }
