@@ -13,7 +13,7 @@ const routes = [
   },
   {
     path: "/recipe/create",
-    name: "recipe-form",
+    name: "RecipeFrom",
     component: RecipeForm,
   },
 ];

@@ -24,7 +24,7 @@
         <div v-show="indexRecipe === index">
           <p class="fst-italic">{{ recipe.desc }}</p>
         </div>
-        <button @click="deleteRecipe(recipe)" class="btn btn-danger">
+        <button @click="deleteRecipe(recipe)" class="btn btn-danger mx-1">
           Delete
         </button>
       </div>

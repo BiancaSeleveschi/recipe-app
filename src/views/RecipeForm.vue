@@ -20,12 +20,12 @@
       uploadMsg="upload product images"
       fileError="images files only accepted"
     />
-    <input
+    <textarea
       v-model="newRecipe.desc"
-      class="d-block m-auto my-2 add-recipe-input"
+      class="d-block m-auto my-2 textarea"
       type="text"
       placeholder="Description"
-    />
+    ></textarea>
     <select
       class="d-block m-auto my-2 rounded-2 add-recipe-select"
       v-model="newRecipe.category"
@@ -36,7 +36,6 @@
       </option>
     </select>
     <button
-      v-show="!addedRecipe"
       class="d-block mt-3 m-auto rounded-2 btn btn-primary"
       @click="addRecipe"
     >
@@ -48,7 +47,7 @@
         class="alert alert-success w-25 mx-auto mt-5"
         role="alert"
       >
-        ✔ The recipe has been added to your cart.
+        ✔ The recipe has been added to your list.
       </div>
     </transition>
   </div>
@@ -73,7 +72,6 @@ export default {
         desc: "",
       },
       categories: ["Breakfast", "Lunch", "Dinner"],
-      addedRecipe: "",
       showAddingAlert: false,
       showTitleAlert: false,
     };
@@ -107,7 +105,11 @@ export default {
 .add-recipe-input {
   width: 230px;
 }
-
+.textarea {
+  width: 25%;
+  height: 200px;
+  outline: none;
+}
 .add-recipe-input,
 .add-recipe-select {
   padding: 5px;

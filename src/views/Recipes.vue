@@ -3,14 +3,18 @@
     <h1 class="fw-bold">My Menu</h1>
     <div class="border border-dark m-auto mt-3" id="border-menu"></div>
     <h4 class="mt-5 mb-4">Search recipe</h4>
-    <div class="m-auto">
+    <div class="mb-3">
       <input
         v-model="searchTitle"
         id="search-input"
         type="text"
         placeholder="Search"
+        class="m-auto"
         v-on:keyup.enter="search"
       />
+      <button @click="search" class="btn btn-secondary rounded-1">
+        Search
+      </button>
     </div>
     <div
       v-for="(category, index) in categories"
@@ -78,14 +82,14 @@ export default {
 }
 
 #search-input {
-  width: 250px;
-  padding: 7px;
+  padding-top: 6px;
+  padding-bottom: 8px;
   border: none;
   border-radius: 3px;
   outline: none;
 }
 
 #search-input:focus {
-  background-color: rgba(169, 164, 164, 0.8);
+  background-color: rgba(199, 194, 194, 0.8);
 }
 </style>
