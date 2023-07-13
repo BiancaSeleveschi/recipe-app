@@ -17,9 +17,8 @@ The recipe app is a fantastic tool for culinary enthusiasts and home cooks alike
  https://recipe-app-sele.netlify.app/
 
 ### UI
-<img src="src/assets/recipes.jpg" width="350">
-<img src="src/assets/recipe-form.jpg" width="350">
-<img src="src/assets/recipe.jpg" width="350">
+<img src="src/assets/recipes.jpg" width="400">
+<img src="src/assets/recipe-form.jpg" width="400">
  
 ## Project setup
 ```
