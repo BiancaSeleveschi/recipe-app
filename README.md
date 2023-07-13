@@ -1,16 +1,21 @@
-# recipe-app
+# RecipeApp
+The recipe app is a fantastic tool for culinary enthusiasts and home cooks alike. It allows users to add their own recipes or search recipes by name or category, providing a platform for sharing and discovering a wide range of delicious dishes.
 
-The recipe app I worked on is a versatile and user-friendly platform designed for culinary enthusiasts and home cooks. It provides a space where users can contribute their own recipes, creating a vibrant community of sharing and exploration of diverse and delicious dishes.
+## Features
+- view all recipes
+- view recipes by category
+- wiew recipe details
+- search recipe
+- add new recipe
+- delete recipe
 
-Within the app, users have the freedom to add their unique recipes, including detailed cooking instructions. This allows for the creation of personalized recipes that reflect individual tastes and preferences.
 
-One of the key features of the app is its robust search functionality. Users can easily search for recipes by name or category, making it effortless to find specific dishes or explore recipes within a particular cuisine. This enhances the overall user experience by providing quick and convenient access to a wide variety of culinary inspirations.
+## Built with
+<p align="left"> <a href="https://vuejs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original-wordmark.svg" alt="vuejs" width="40" height="40"/> </a>  <a href="https://getbootstrap.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/> </a>  <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a></a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> </p>
 
-To develop this app, I utilized Vuex for state management, ensuring efficient data handling and a smooth user interface. Vue.js served as the framework, providing a solid foundation for building dynamic and interactive components. Additionally, Bootstrap was used to create a responsive and visually appealing design that enhances the overall user experience.
-
-By combining the power of Vuex, Vue.js, and Bootstrap, the recipe app offers a seamless and engaging platform for sharing, discovering, and exploring culinary creations. It empowers users to showcase their culinary creativity while connecting with a community of food enthusiasts.
-
-Demo: https://recipe-app-sele.netlify.app/
+### Demo
+ https://recipe-app-sele.netlify.app/
+ 
 ## Project setup
 ```
 npm install
