@@ -112,12 +112,12 @@ export default new Vuex.Store({
     },
     ADD_RECIPE(state, recipe) {
       state.recipes.push(recipe);
-      localStorage.setItem("recipes", JSON.stringify(state.recipes));
+      sessionStorage.setItem("recipes", JSON.stringify(state.recipes));
     },
     DELETE_RECIPE(state, recipe) {
       let index = state.recipes.findIndex((r) => r.id === recipe.id);
       state.recipes.splice(index, 1);
-      localStorage.setItem("recipes", JSON.stringify(state.recipes));
+      sessionStorage.setItem("recipes", JSON.stringify(state.recipes));
     },
   },
   actions: {

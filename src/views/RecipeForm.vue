@@ -26,6 +26,7 @@
       class="d-block m-auto my-2 textarea"
       type="text"
       placeholder="Description"
+      rows="3"
     ></textarea>
     <select
       class="d-block m-auto my-2 rounded-2 add-recipe-select"
@@ -112,13 +113,19 @@ export default {
   width: 230px;
 }
 .textarea {
-  width: 25%;
+  width: 35%;
   height: 200px;
   outline: none;
 }
+@media (max-width: 576px) {
+  .textarea {
+    width: 90%;
+  }
+}
+
 .add-recipe-input,
 .add-recipe-select {
-  padding: 5px;
+  padding: 7px;
   border: none;
   border-radius: 3px;
   outline: none;

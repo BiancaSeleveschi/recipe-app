@@ -4,7 +4,7 @@
       <div
         v-for="(recipe, index) in recipes"
         :key="index"
-        class="col-sm-10 col-md-6 col-lg-3 m-3 p-3 border border-2 border-dark rounded-2 item"
+        class="col-sm-5 col-md-5 col-lg-3 mx-2 my-4 p-3 border border-2 border-dark rounded-2 item"
       >
         <div id="recipe-header" class="pt-2">
           <h2>{{ recipe.title }}</h2>
@@ -15,7 +15,7 @@
           :src="recipe.img"
           width="300"
           alt="Image"
-          class="m-auto card border-warning"
+          class="col-sm-11 col-md-11 col-lg-12 m-auto card border-warning"
         />
         <p
           class="mt-3 fst-italic fw-bold"
