@@ -14,6 +14,7 @@
       </p>
     </div>
     <UploadImages
+      v-model="newRecipe.img"
       @changed="handleImages"
       :max="5"
       maxError="Max files exceed"
@@ -70,11 +71,15 @@ export default {
         category: this.$store.state.categories[1],
         price: "",
         desc: "",
+        img: this.handleImages,
       },
       categories: ["Breakfast", "Lunch", "Dinner"],
       showAddingAlert: false,
       showTitleAlert: false,
     };
+  },
+  mounted() {
+    console.log(this.newRecipe.img);
   },
   methods: {
     addRecipe() {
@@ -91,6 +96,7 @@ export default {
     handleImages(files) {
       console.log("files");
       console.log(files);
+      this.newRecipe.img = files;
     },
   },
 };

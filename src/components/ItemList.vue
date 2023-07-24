@@ -1,17 +1,22 @@
 <template>
   <div class="container pb-5">
-    <div class="row d-flex justify-content-between">
+    <div class="row justify-content-between">
       <div
         v-for="(recipe, index) in recipes"
         :key="index"
-        class="col m-4 p-4 border border-2 border-dark rounded-2 item"
+        class="col-sm-10 col-md-6 col-lg-3 m-3 p-3 border border-2 border-dark rounded-2 item"
       >
         <div id="recipe-header" class="pt-2">
           <h2>{{ recipe.title }}</h2>
           <p>{{ recipe.category }}</p>
           <p class="fw-bold">{{ recipe.price }}</p>
         </div>
-        <img :src="recipe.img" width="300" class="m-auto card border-warning" />
+        <img
+          :src="recipe.img"
+          width="300"
+          alt="Image"
+          class="m-auto card border-warning"
+        />
         <p
           class="mt-3 fst-italic fw-bold"
           id="description"

@@ -1,7 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import { v4 as uuid } from "uuid";
-const STORAGE_KEY = "recipes";
 
 Vue.use(Vuex);
 
@@ -106,30 +105,27 @@ export default new Vuex.Store({
   },
   mutations: {
     INIT_STORE(state) {
-      const data = localStorage.getItem(STORAGE_KEY);
+      const data = localStorage.getItem(state.recipes);
       if (data) {
         state.recipes = JSON.parse(data);
       }
     },
-    UPDATE_STORE(state) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state.recipes));
-    },
     ADD_RECIPE(state, recipe) {
       state.recipes.push(recipe);
+      localStorage.setItem("recipes", JSON.stringify(state.recipes));
     },
     DELETE_RECIPE(state, recipe) {
       let index = state.recipes.findIndex((r) => r.id === recipe.id);
       state.recipes.splice(index, 1);
+      localStorage.setItem("recipes", JSON.stringify(state.recipes));
     },
   },
   actions: {
     addRecipe(context, recipe) {
       context.commit("ADD_RECIPE", recipe);
-      context.commit("UPDATE_STORE");
     },
     deleteRecipe(context, recipe) {
       context.commit("DELETE_RECIPE", recipe);
-      context.commit("UPDATE_STORE");
     },
   },
   modules: {},
