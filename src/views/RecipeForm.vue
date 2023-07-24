@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2 class="mb-4">Add recipe</h2>
-    <div class="my-2">
+    <div class="my-3">
       <input
         v-model="newRecipe.title"
         class="d-block m-auto add-recipe-input"
@@ -15,18 +15,19 @@
     </div>
     <UploadImages
       v-model="newRecipe.img"
+      class="w-75"
       @changed="handleImages"
-      :max="5"
+      :max="4"
       maxError="Max files exceed"
       uploadMsg="upload product images"
       fileError="images files only accepted"
     />
     <textarea
       v-model="newRecipe.desc"
-      class="d-block m-auto my-2 textarea"
+      class="d-block m-auto my-3 textarea"
       type="text"
       placeholder="Description"
-      rows="3"
+      rows="6"
     ></textarea>
     <select
       class="d-block m-auto my-2 rounded-2 add-recipe-select"
@@ -114,12 +115,11 @@ export default {
 }
 .textarea {
   width: 35%;
-  height: 200px;
   outline: none;
 }
 @media (max-width: 576px) {
   .textarea {
-    width: 90%;
+    width: 80%;
   }
 }
 

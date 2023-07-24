@@ -1,7 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import { v4 as uuid } from "uuid";
-
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -105,7 +104,7 @@ export default new Vuex.Store({
   },
   mutations: {
     INIT_STORE(state) {
-      const data = localStorage.getItem(state.recipes);
+      const data = sessionStorage.getItem("recipes");
       if (data) {
         state.recipes = JSON.parse(data);
       }
